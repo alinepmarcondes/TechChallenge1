@@ -11,3 +11,11 @@ O problema é formulado como uma classificação binária:
 `Yes`: o cliente apresentou churn.
 
 A variável `Churn Label` é utilizada como único target. A classe `Yes` é considerada a classe positiva.
+
+## ML Canvas
+
+O ML Canvas foi elaborado para documentar a relação entre o
+problema de negócio, os stakeholders, os dados disponíveis,
+o objetivo de Machine Learning e as métricas de sucesso.
+
+![ML Canvas](docs/ml_canvas.png)

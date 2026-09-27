@@ -53,13 +53,21 @@ def main() -> None:
 
     metricas = avaliar_modelo(pipeline, X_teste, y_teste)
 
-    salvar_modelo(pipeline, RAIZ_PROJETO / "models/baseline_logistic_regression.joblib")
+    salvar_modelo(pipeline, RAIZ_PROJETO / "models/logistic_regression_final.joblib")
+    resultado = {
+        "modelo": "LogisticRegression",
+        "random_state": RANDOM_STATE,
+        "test_size": 0.20,
+        "max_iter": 1_000,
+        "target": TARGET,
+        "metricas": metricas,
+    }
     salvar_metricas(
-        metricas,
-        RAIZ_PROJETO / "reports/baseline_logistic_regression_metrics.json",
+        resultado,
+        RAIZ_PROJETO / "reports/logistic_regression_final_metrics.json",
     )
 
-    print(metricas)
+    print(resultado)
 
 
 if __name__ == "__main__":

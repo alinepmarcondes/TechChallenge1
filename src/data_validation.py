@@ -1,5 +1,27 @@
 import pandas as pd
 
+COLUNAS_MODELO = [
+    "Gender",
+    "Senior Citizen",
+    "Partner",
+    "Dependents",
+    "Tenure Months",
+    "Phone Service",
+    "Multiple Lines",
+    "Internet Service",
+    "Online Security",
+    "Online Backup",
+    "Device Protection",
+    "Tech Support",
+    "Streaming TV",
+    "Streaming Movies",
+    "Contract",
+    "Paperless Billing",
+    "Payment Method",
+    "Monthly Charges",
+    "Total Charges",
+    "CLTV",
+]
 
 def validar_colunas(df: pd.DataFrame, colunas_obrigatorias: list[str]) -> None:
     """Verifica se todas as colunas obrigatórias estão no dataset.
@@ -17,28 +39,40 @@ def validar_colunas(df: pd.DataFrame, colunas_obrigatorias: list[str]) -> None:
 
 
 def validar_alvo(df: pd.DataFrame, coluna_alvo: str) -> None:
-    """Verifica a presença e os valores da coluna alvo.
+    """Valida a coluna utilizada como alvo da classificacao de churn.
 
-    A coluna deve existir, não conter valores ausentes e possuir apenas
-    as classes 0 e 1 após a conversão para inteiro.
+    Confirma que a coluna existe, não contem valores ausentes, pode ser
+    convertida para numeros inteiros e possui somente as classes binárias
+    0 (nao churn) e 1 (churn). A função apenas valida os dados e não altera
+    o DataFrame recebido.
 
     Args:
-        df: DataFrame a ser validado.
-        coluna_alvo: Nome da coluna que indica churn.
+        df: DataFrame que contem a coluna alvo.
+        coluna_alvo: Nome da coluna utilizada como target do modelo.
 
     Raises:
-        ValueError: Se a coluna estiver ausente, contiver valores
-            ausentes ou apresentar classes diferentes de 0 e 1.
-        ValueError: Se algum valor não puder ser convertido para inteiro.
+        ValueError: Se a coluna alvo estiver ausente, contiver valores
+            ausentes, nao puder ser convertida para inteiro ou apresentar
+            valores diferentes de 0 e 1.
     """
     validar_colunas(df, [coluna_alvo])
 
     if df[coluna_alvo].isna().any():
         raise ValueError(f"'{coluna_alvo}' contém valores ausentes.")
 
-    valores = set(df[coluna_alvo].astype(int).unique())
+    try:
+        alvo = df[coluna_alvo].astype(int)
+    except (TypeError, ValueError) as erro:
+        raise ValueError(
+            f"'{coluna_alvo}' não pôde ser convertida para inteiro."
+        ) from erro
+
+    valores = set(alvo.unique())
+
     if not valores <= {0, 1}:
-        raise ValueError(f"'{coluna_alvo}' deve conter apenas 0 e 1.")
+        raise ValueError(
+            f"'{coluna_alvo}' deve conter apenas 0 e 1."
+        )
 
 
 def validar_dados(df: pd.DataFrame, coluna_alvo: str) -> None:
@@ -57,5 +91,8 @@ def validar_dados(df: pd.DataFrame, coluna_alvo: str) -> None:
     if df.empty:
         raise ValueError("O dataset está vazio.")
 
-    validar_colunas(df, ["Total Charges"])
+    validar_colunas(
+        df,
+        [coluna_alvo, *COLUNAS_MODELO],
+    )
     validar_alvo(df, coluna_alvo)

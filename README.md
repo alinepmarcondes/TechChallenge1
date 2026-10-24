@@ -76,7 +76,7 @@ Como métrica de negócio, recomenda-se acompanhar a quantidade ou proporção d
 
 | Modelo | Accuracy | Precision | Recall | F1-score | ROC-AUC |
 |---|---:|---:|---:|---:|---:|
-| **Regressão Logística** | **0.8122** | 0.6676 | **0.5819** | **0.6212** | **0.8588** |
+| **Regressão Logística** | **0.8113** | 0.6656 | **0.5806** | **0.6196** | **0.8588** |
 | Random Forest | 0.7993 | 0.6521 | 0.5244 | 0.5811 | 0.8446 |
 | MLPClassifier | 0.8037 | **0.6708** | 0.5130 | 0.5810 | 0.8512 |
 

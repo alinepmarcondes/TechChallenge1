@@ -9,7 +9,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /app
 
 # Copia o executavel do uv da imagem oficial.
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.13.4 /uv /uvx /bin/
 
 # Instala primeiro as dependencias para aproveitar o cache do Docker.
 COPY pyproject.toml uv.lock ./

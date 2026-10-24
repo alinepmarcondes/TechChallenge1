@@ -24,7 +24,7 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 
     yield
     
-    app.state_modelo = None
+    app.state.modelo = None
 
 app = FastAPI(
     title="API de Previsão de Churn",

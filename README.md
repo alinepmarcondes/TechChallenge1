@@ -38,6 +38,14 @@ Antes do treinamento, são removidas colunas identificadoras, constantes, geogr�
 
 > Os dados não devem ser utilizados para identificar pessoas ou tomar decisões automatizadas sem supervisão humana. Consulte também o [Model Card](docs/MODEL_CARD.md).
 
+### Premissa sobre o uso de `CLTV`
+
+Para fins acadêmicos, assume-se que a variável `CLTV` está disponível no
+momento da inferência e é calculada pelo mesmo processo utilizado na construção
+do dataset. Em uma aplicação real, essa premissa deve ser validada antes da
+implantação. Caso a variável não esteja disponível ou seja calculada de forma
+diferente, o modelo deverá ser retreinado sem `CLTV`.
+
 ## Metodologia
 
 ### Pré-processamento
@@ -137,6 +145,25 @@ O artefato final contém o pré-processamento ajustado e a Regressão Logística
 ├── uv.lock
 └── README.md
 ```
+
+## Ordem de execução dos notebooks
+
+Os notebooks devem ser executados na seguinte ordem:
+
+1. `01_eda.ipynb`: realiza a análise exploratória, converte `Total Charges`
+   para formato numérico e gera `data/processed/dataset.parquet`;
+2. `02_baseline_logistic_regression.ipynb`: treina e avalia o baseline de
+   Regressão Logística;
+3. `03_random_forest.ipynb`: treina e avalia o Random Forest;
+4. `04_mlp_classifier.ipynb`: treina e avalia o MLPClassifier;
+5. `05_cross_validation.ipynb`: aplica validação cruzada, compara os três
+   modelos, seleciona o campeão e gera os artefatos finais.
+
+Os notebooks 02 a 05 dependem do arquivo
+`data/processed/dataset.parquet`, criado pelo notebook de EDA.
+Alternativamente, o fluxo modular pode ser executado diretamente com
+`uv run python -m src.main`, pois ele parte da planilha original, prepara os
+dados e gera os artefatos necessários.
 
 ## Pré-requisitos
 

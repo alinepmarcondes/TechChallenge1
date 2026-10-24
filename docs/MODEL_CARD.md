@@ -12,7 +12,7 @@
 | Classe positiva | `Churn Value = 1` |
 | Artefato | Pipeline serializada em Joblib |
 | Responsável | `Aline Patta Marcondes` |
-| Data da versão | `2026-10-18>` |
+| Data da versão | `2026-10-18` |
 
 ## Finalidade
 
@@ -69,7 +69,8 @@ Foram descartadas informações identificadoras, constantes, geográficas redund
 - imputação numérica pela mediana;
 - padronização numérica;
 - imputação categórica pela moda;
-- codificação one-hot das categorias;
+- codificação one-hot das categorias, com remoção de uma categoria nas
+  variáveis binárias (`drop="if_binary"`);
 - categorias não observadas ignoradas pelo codificador durante a transformação.
 
 O pré-processamento e o classificador são persistidos na mesma pipeline para manter consistência entre treino e inferência.
@@ -94,7 +95,7 @@ O Random Forest apresentou métricas perfeitas no treino e queda expressiva na v
 
 | Modelo | Accuracy | Precision | Recall | F1-score | ROC-AUC |
 |---|---:|---:|---:|---:|---:|
-| **Regressão Logística** | **0.8122** | 0.6676 | **0.5819** | **0.6212** | **0.8588** |
+| **Regressão Logística** | **0.8113** | 0.6656 | **0.5806** | **0.6196** | **0.8588** |
 | Random Forest | 0.7993 | 0.6521 | 0.5244 | 0.5811 | 0.8446 |
 | MLPClassifier | 0.8037 | **0.6708** | 0.5130 | 0.5810 | 0.8512 |
 
@@ -102,7 +103,7 @@ O Random Forest apresentou métricas perfeitas no treino e queda expressiva na v
 
 | Modelo | Accuracy | Precision | Recall | F1-score | ROC-AUC |
 |---|---:|---:|---:|---:|---:|
-| Regressão Logística | 0.0126 | 0.0252 | 0.0437 | 0.0313 | 0.0125 |
+| Regressão Logística | 0.0134 | 0.0273 | 0.0433 | 0.0321 | 0.0125 |
 | Random Forest | 0.0135 | 0.0355 | 0.0200 | 0.0245 | 0.0112 |
 | MLPClassifier | 0.0094 | 0.0272 | 0.0231 | 0.0196 | 0.0125 |
 
@@ -199,4 +200,4 @@ Artefatos Joblib devem ser carregados apenas de fontes confiáveis, pois a desse
 
 | Papel | Nome | Data |
 |---|---|---|
-| Desenvolvimento | `Aline Patta Marcondes` | `2026-10-18>` |
+| Desenvolvimento | `Aline Patta Marcondes` | `2026-10-18` |

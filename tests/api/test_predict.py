@@ -101,7 +101,7 @@ def test_predict_retorna_422_categoria_invalida(monkeypatch) -> None:
     assert response.status_code == 422
     predicao_fake.assert_not_called()
 
-def test_predict_retorna_502_modelo_indisponivel(monkeypatch) -> None:
+def test_predict_retorna_503_modelo_indisponivel(monkeypatch) -> None:
     """Deve impedir a inferência quando o artefato não foi carregado."""
 
     def falhar_ao_carregar(_caminho):

@@ -1,3 +1,5 @@
+[![Vídeo no YouTube](https://img.shields.io/badge/YouTube-Apresentação-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/pLkH5l2uMoo)
+
 # Tech Challenge - Previsão de Churn
 
 Pipeline de Machine Learning para identificar clientes de telecomunicações com maior propensão ao churn. O projeto cobre análise exploratória, comparação de modelos, seleção e persistência do modelo campeão, modularização do código, testes automatizados e disponibilização de inferência por uma API REST com FastAPI.
@@ -93,6 +95,14 @@ O Random Forest atingiu métricas perfeitas no treino, mas apresentou queda rele
 | ROC-AUC | 0.8488 |
 
 O artefato final contém o pré-processamento ajustado e a Regressão Logística na mesma pipeline, reduzindo o risco de divergência entre treinamento e inferência.
+
+## Vídeo de apresentação
+
+A apresentação do projeto foi estruturada com base na metodologia **STAR** — Situação, Tarefa, Ação e Resultado — e demonstra as principais etapas do desenvolvimento, os resultados dos modelos e o funcionamento da API.
+
+▶️ [Assistir ao vídeo de apresentação no YouTube](https://youtu.be/pLkH5l2uMoo)
+
+> O vídeo está publicado como não listado e pode ser acessado diretamente pelo link acima.
 
 ## Estrutura do repositório
 

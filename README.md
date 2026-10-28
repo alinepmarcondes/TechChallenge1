@@ -1,4 +1,4 @@
-[![Vídeo no YouTube](https://img.shields.io/badge/YouTube-Apresentação-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/pLkH5l2uMoo)
+[![Vídeo de apresentação](https://img.shields.io/badge/Google_Drive-Vídeo_STAR-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/file/d/129jsqUCBZRNAWRm2ZcD6C8vEQ_sFXVoA/view?usp=sharing)
 
 # Tech Challenge - Previsão de Churn
 
@@ -98,11 +98,11 @@ O artefato final contém o pré-processamento ajustado e a Regressão Logística
 
 ## Vídeo de apresentação
 
-A apresentação do projeto foi estruturada com base na metodologia **STAR** — Situação, Tarefa, Ação e Resultado — e demonstra as principais etapas do desenvolvimento, os resultados dos modelos e o funcionamento da API.
+A apresentação do projeto, estruturada com base na metodologia STAR — Situação, Tarefa, Ação e Resultado — está disponível no Google Drive:
 
-▶️ [Assistir ao vídeo de apresentação no YouTube](https://youtu.be/pLkH5l2uMoo)
+▶️ [Assistir ao vídeo de apresentação](https://drive.google.com/file/d/129jsqUCBZRNAWRm2ZcD6C8vEQ_sFXVoA/view)
 
-> O vídeo está publicado como não listado e pode ser acessado diretamente pelo link acima.
+> O vídeo está configurado para visualização por qualquer pessoa que possua o link.
 
 ## Estrutura do repositório
 
